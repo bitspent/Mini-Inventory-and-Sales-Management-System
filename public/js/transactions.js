@@ -881,7 +881,7 @@ function calchadue(){
     var amountTendered = parseFloat($("#amountTendered").val());
 
     if(amountTendered && (amountTendered < cumAmount)){
-        $("#amountTenderedErr").html("Amount cannot be less than &#8358;"+ cumAmount);
+        $("#amountTenderedErr").html("Amount cannot be less than $"+ cumAmount);
 
         //remove change due if any
         $("#changeDue").html("");

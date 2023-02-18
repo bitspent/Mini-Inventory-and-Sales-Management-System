@@ -28,9 +28,9 @@
                     <th><?= $sn ?>.</th>
                     <td><a class="pointer vtr" title="Click to view receipt"><?= $get->ref ?></a></td>
                     <td><?= $get->quantity ?></td>
-                    <td>&#8358;<?= number_format($get->totalMoneySpent, 2) ?></td>
-                    <td>&#8358;<?= number_format($get->amountTendered, 2) ?></td>
-                    <td>&#8358;<?= number_format($get->changeDue, 2) ?></td>
+                    <td>$<?= number_format($get->totalMoneySpent, 2) ?></td>
+                    <td>$<?= number_format($get->amountTendered, 2) ?></td>
+                    <td>$<?= number_format($get->changeDue, 2) ?></td>
                     <td><?=  str_replace("_", " ", $get->modeOfPayment)?></td>
                     <td><?=$get->staffName?></td>
                     <td><?=$get->cust_name?> - <?=$get->cust_phone?> - <?=$get->cust_email?></td>

@@ -129,7 +129,7 @@ class Items extends CI_Controller
 
       $itemName = set_value('itemName');
       $itemQty = set_value('itemQuantity');
-      $itemPrice = "&#8358;" . number_format(set_value('itemPrice'), 2);
+      $itemPrice = "$" . number_format(set_value('itemPrice'), 2);
 
       //insert into eventlog
       //function header: addevent($event, $eventRowId, $eventDesc, $eventTable, $staffId)

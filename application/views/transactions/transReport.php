@@ -77,9 +77,9 @@ $total_earned = 0;
                                         <th><?= $sn ?>.</th>
                                         <td><?= $get->ref ?></td>
                                         <td><?= $get->quantity ?></td>
-                                        <td>&#8358;<?= number_format($get->totalMoneySpent, 2) ?></td>
-                                        <td>&#8358;<?= number_format($get->amountTendered, 2) ?></td>
-                                        <td>&#8358;<?= number_format($get->changeDue, 2) ?></td>
+                                        <td>$<?= number_format($get->totalMoneySpent, 2) ?></td>
+                                        <td>$<?= number_format($get->amountTendered, 2) ?></td>
+                                        <td>$<?= number_format($get->changeDue, 2) ?></td>
                                         <td><?=  str_replace("_", " ", $get->modeOfPayment)?></td>
                                         <td><?=$get->staffName?></td>
                                         <td><?=$get->cust_name?> - <?=$get->cust_phone?> - <?=$get->cust_email?></td>
@@ -105,7 +105,7 @@ $total_earned = 0;
                 </div>
                 
                 <div class="col-xs-6 text-right">
-                    <h4>Total Earned: &#8358;<?=number_format($total_earned, 2)?></h4>
+                    <h4>Total Earned:$<?=number_format($total_earned, 2)?></h4>
                 </div>
             </div>
         </div>

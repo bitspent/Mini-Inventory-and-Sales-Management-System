@@ -126,7 +126,7 @@ defined('BASEPATH') or exit('');
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a>
-              Total Earned Today: <b>&#8358;<span id="totalEarnedToday"></span></b>
+              Total Earned Today: <b>$<span id="totalEarnedToday"></span></b>
             </a>
           </li>
           <li class="dropdown">
