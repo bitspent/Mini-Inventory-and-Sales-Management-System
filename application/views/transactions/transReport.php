@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('');
-
+date_default_timezone_set('Asia/Beirut');
 $total_earned = 0;
 
 /**

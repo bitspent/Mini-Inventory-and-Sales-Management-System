@@ -1,5 +1,6 @@
-<?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+date_default_timezone_set('Asia/Beirut');
 ?>
 
 <!DOCTYPE html>
@@ -13,16 +14,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <title>Log in</title>
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="<?=base_url()?>public/images/icon.ico">
+        <link rel="shortcut icon" href="<?= base_url() ?>public/images/icon.ico">
         <!-- favicon ends --->
         
         <!--- LOAD FILES -->
-        <?php if($_SERVER['HTTP_HOST'] == "localhost" || (stristr($_SERVER['HTTP_HOST'], "192.168.") !== FALSE)|| (stristr($_SERVER['HTTP_HOST'], "127.0.0.") !== FALSE)): ?>
-        <link rel="stylesheet" href="<?=base_url()?>public/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="<?=base_url()?>public/font-awesome/css/font-awesome.min.css">
+        <?php if (
+            $_SERVER['HTTP_HOST'] == 'localhost' ||
+            stristr($_SERVER['HTTP_HOST'], '192.168.') !== false ||
+            stristr($_SERVER['HTTP_HOST'], '127.0.0.') !== false
+        ): ?>
+        <link rel="stylesheet" href="<?= base_url() ?>public/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?= base_url() ?>public/font-awesome/css/font-awesome.min.css">
 
-        <script src="<?=base_url()?>public/js/jquery.min.js"></script>
-        <script src="<?=base_url()?>public/bootstrap/js/bootstrap.min.js"></script>
+        <script src="<?= base_url() ?>public/js/jquery.min.js"></script>
+        <script src="<?= base_url() ?>public/bootstrap/js/bootstrap.min.js"></script>
 
         <?php else: ?>
         
@@ -35,9 +40,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php endif; ?> 
         
         <!-- CSS -->
-        <link rel="stylesheet" href="<?=base_url()?>public/css/form-elements.css">
-        <link rel="stylesheet" href="<?=base_url()?>public/css/style.css">
-        <link rel="stylesheet" href="<?=base_url()?>public/css/main.css">
+        <link rel="stylesheet" href="<?= base_url() ?>public/css/form-elements.css">
+        <link rel="stylesheet" href="<?= base_url() ?>public/css/style.css">
+        <link rel="stylesheet" href="<?= base_url() ?>public/css/main.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -58,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <div style="font-size:100px">
-                                <h1><img src="<?=base_url()?>public/images/logo_white.png" alt="1410-logo" height="150px"></h1>
+                                <h1><img src="<?= base_url() ?>public/images/logo_white.png" alt="1410-logo" height="150px"></h1>
                             </div>
                         </div>
                     </div>
@@ -95,9 +100,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         <!-- Javascript -->
-        <script src="<?=base_url()?>public/js/main.js"></script>
-        <script src="<?=base_url()?>public/js/access.js"></script>
-        <script src="<?=base_url()?>public/js/jquery.backstretch.min.js"></script>
+        <script src="<?= base_url() ?>public/js/main.js"></script>
+        <script src="<?= base_url() ?>public/js/access.js"></script>
+        <script src="<?= base_url() ?>public/js/jquery.backstretch.min.js"></script>
         <!--Javascript--->
 
     </body>

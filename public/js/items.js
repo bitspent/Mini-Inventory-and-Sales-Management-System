@@ -94,19 +94,21 @@ $(document).ready(function () {
     $("#addNewItem").click(function (e) {
         e.preventDefault();
 
-        changeInnerHTML(['itemNameErr', 'itemQuantityErr', 'itemPriceErr', 'itemCodeErr', 'addCustErrMsg'], "");
+        changeInnerHTML(['itemNameErr', 'itemQuantityErr', 'itemPriceErr', 'itemCostErr', 'itemCodeErr', 'addCustErrMsg'], "");
 
         var itemName = $("#itemName").val();
         var itemQuantity = $("#itemQuantity").val();
         var itemPrice = $("#itemPrice").val().replace(",", "");
+        var itemCost = $("#itemCost").val().replace(",", "");
         var itemCode = $("#itemCode").val();
         var itemDescription = $("#itemDescription").val();
 
-        if (!itemName || !itemQuantity || !itemPrice || !itemCode) {
+        if (!itemName || !itemQuantity || !itemPrice || !itemCode || !itemCost) {
             !itemName ? $("#itemNameErr").text("required") : "";
             !itemQuantity ? $("#itemQuantityErr").text("required") : "";
             !itemPrice ? $("#itemPriceErr").text("required") : "";
             !itemCode ? $("#itemCodeErr").text("required") : "";
+            !itemCost ? $("#itemCostErr").text("required") : "";
 
             $("#addCustErrMsg").text("One or more required fields are empty");
 
@@ -118,7 +120,7 @@ $(document).ready(function () {
         $.ajax({
             type: "post",
             url: appRoot + "items/add",
-            data: { itemName: itemName, itemQuantity: itemQuantity, itemPrice: itemPrice, itemDescription: itemDescription, itemCode: itemCode },
+            data: { itemName: itemName, itemQuantity: itemQuantity, itemPrice: itemPrice, itemCost: itemCost, itemDescription: itemDescription, itemCode: itemCode },
 
             success: function (returnedData) {
                 if (returnedData.status === 1) {

@@ -1,5 +1,6 @@
 <?php
-defined('BASEPATH') OR exit('');
+defined('BASEPATH') or exit('');
+date_default_timezone_set('Asia/Beirut');
 ?>
 
 <div class="row latestStuffs">
@@ -8,7 +9,7 @@ defined('BASEPATH') OR exit('');
             <div class="panel-body latestStuffsBody" style="background-color: #5cb85c">
                 <div class="pull-left"><i class="fa fa-exchange"></i></div>
                 <div class="pull-right">
-                    <div><?=$totalSalesToday?></div>
+                    <div><?= $totalSalesToday ?></div>
                     <div class="latestStuffsText">Total Sales Today</div>
                 </div>
             </div>
@@ -20,7 +21,7 @@ defined('BASEPATH') OR exit('');
             <div class="panel-body latestStuffsBody" style="background-color: #f0ad4e">
                 <div class="pull-left"><i class="fa fa-tasks"></i></div>
                 <div class="pull-right">
-                    <div><?=$totalTransactions?></div>
+                    <div><?= $totalTransactions ?></div>
                     <div class="latestStuffsText pull-right">Total Transactions</div>
                 </div>
             </div>
@@ -32,7 +33,7 @@ defined('BASEPATH') OR exit('');
             <div class="panel-body latestStuffsBody" style="background-color: #337ab7">
                 <div class="pull-left"><i class="fa fa-shopping-cart"></i></div>
                 <div class="pull-right">
-                    <div><?=$totalItems?></div>
+                    <div><?= $totalItems ?></div>
                     <div class="latestStuffsText pull-right">Items in Stock</div>
                 </div>
             </div>
@@ -60,9 +61,11 @@ defined('BASEPATH') OR exit('');
         <section class="panel form-group-sm">
             <label class="control-label">Select Account Year:</label>
             <select class="form-control" id="earningAndExpenseYear">
-                <?php $years = range("2016", date('Y')); ?>
-                <?php foreach($years as $y):?>
-                <option value="<?=$y?>" <?=$y == date('Y') ? 'selected' : ''?>><?=$y?></option>
+                <?php $years = range('2016', date('Y')); ?>
+                <?php foreach ($years as $y): ?>
+                <option value="<?= $y ?>" <?= $y == date('Y')
+    ? 'selected'
+    : '' ?>><?= $y ?></option>
                 <?php endforeach; ?>
             </select>
             <span id="yearAccountLoading"></span>
@@ -82,7 +85,7 @@ defined('BASEPATH') OR exit('');
     <div class="col-sm-3">
         <div class="panel panel-hash">
             <div class="panel-heading"><i class="fa fa-cart-plus"></i> HIGH IN DEMAND</div>
-            <?php if($topDemanded): ?>
+            <?php if ($topDemanded): ?>
             <table class="table table-striped table-responsive table-hover">
                 <thead>
                     <tr>
@@ -91,10 +94,10 @@ defined('BASEPATH') OR exit('');
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($topDemanded as $get):?>
+                <?php foreach ($topDemanded as $get): ?>
                     <tr>
-                        <td><?=$get->name?></td>
-                        <td><?=$get->totSold?></td>
+                        <td><?= $get->name ?></td>
+                        <td><?= $get->totSold ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -108,7 +111,7 @@ defined('BASEPATH') OR exit('');
     <div class="col-sm-3">
         <div class="panel panel-hash">
             <div class="panel-heading"><i class="fa fa-cart-arrow-down"></i> LOW IN DEMAND</div>
-            <?php if($leastDemanded): ?>
+            <?php if ($leastDemanded): ?>
             <table class="table table-striped table-responsive table-hover">
                 <thead>
                     <tr>
@@ -117,10 +120,10 @@ defined('BASEPATH') OR exit('');
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($leastDemanded as $get):?>
+                <?php foreach ($leastDemanded as $get): ?>
                     <tr>
-                        <td><?=$get->name?></td>
-                        <td><?=$get->totSold?></td>
+                        <td><?= $get->name ?></td>
+                        <td><?= $get->totSold ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -134,7 +137,7 @@ defined('BASEPATH') OR exit('');
     <div class="col-sm-3">
         <div class="panel panel-hash">
             <div class="panel-heading"><i class="fa fa-money"></i> HIGHEST EARNING</div>
-            <?php if($highestEarners): ?>
+            <?php if ($highestEarners): ?>
             <table class="table table-striped table-responsive table-hover">
                 <thead>
                     <tr>
@@ -143,10 +146,10 @@ defined('BASEPATH') OR exit('');
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($highestEarners as $get):?>
+                <?php foreach ($highestEarners as $get): ?>
                     <tr>
-                        <td><?=$get->name?></td>
-                        <td>&#8358;<?=number_format($get->totEarned, 2)?></td>
+                        <td><?= $get->name ?></td>
+                        <td>$<?= number_format($get->totEarned, 2) ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -160,7 +163,7 @@ defined('BASEPATH') OR exit('');
     <div class="col-sm-3">
         <div class="panel panel-hash">
             <div class="panel-heading"><i class="fa fa-money"></i> LOWEST EARNING</div>
-            <?php if($lowestEarners): ?>
+            <?php if ($lowestEarners): ?>
             <table class="table table-striped table-responsive table-hover">
                 <thead>
                     <tr>
@@ -169,10 +172,10 @@ defined('BASEPATH') OR exit('');
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($lowestEarners as $get):?>
+                <?php foreach ($lowestEarners as $get): ?>
                     <tr>
-                        <td><?=$get->name?></td>
-                        <td>&#8358;<?=number_format($get->totEarned, 2)?></td>
+                        <td><?= $get->name ?></td>
+                        <td>$<?= number_format($get->totEarned, 2) ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -190,7 +193,7 @@ defined('BASEPATH') OR exit('');
         <div class="panel panel-hash">
             <div class="panel-heading">Daily Transactions</div>
             <div class="panel-body scroll panel-height">
-                <?php if(isset($dailyTransactions) && $dailyTransactions): ?>
+                <?php if (isset($dailyTransactions) && $dailyTransactions): ?>
                 <table class="table table-responsive table-striped table-hover">
                     <thead>
                         <tr>
@@ -202,21 +205,23 @@ defined('BASEPATH') OR exit('');
                     </thead>
 
                     <tbody>
-                        <?php foreach($dailyTransactions as $get): ?>
+                        <?php foreach ($dailyTransactions as $get): ?>
                         <tr>
-                            <td><?=
-                                    date('l jS M, Y', strtotime($get->transactionDate)) === date('l jS M, Y', time())
-                                    ? 
-                                    "Today" 
-                                    : 
-                                    date('l jS M, Y', strtotime($get->transactionDate));
-                                ?>
+                            <td><?= date(
+                                'l jS M, Y',
+                                strtotime($get->transactionDate)
+                            ) === date('l jS M, Y', time())
+                                ? 'Today'
+                                : date(
+                                    'l jS M, Y',
+                                    strtotime($get->transactionDate)
+                                ) ?>
                             </td>
-                            <td><?=$get->qty_sold?></td>
-                            <td><?=$get->tot_trans?></td>
-                            <td>&#8358;<?=number_format($get->tot_earned, 2)?></td>
+                            <td><?= $get->qty_sold ?></td>
+                            <td><?= $get->tot_trans ?></td>
+                            <td>$<?= number_format($get->tot_earned, 2) ?></td>
                         </tr>
-                        <?php endforeach;?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
                 <?php else: ?>
@@ -231,7 +236,7 @@ defined('BASEPATH') OR exit('');
         <div class="panel panel-hash">
             <div class="panel-heading">Transactions by Days</div>
             <div class="panel-body scroll panel-height">
-                <?php if(isset($transByDays) && $transByDays): ?>
+                <?php if (isset($transByDays) && $transByDays): ?>
                 <table class="table table-responsive table-striped table-hover">
                     <thead>
                         <tr>
@@ -243,14 +248,14 @@ defined('BASEPATH') OR exit('');
                     </thead>
 
                     <tbody>
-                        <?php foreach($transByDays as $get): ?>
+                        <?php foreach ($transByDays as $get): ?>
                         <tr>
-                            <td><?=$get->day?>s</td>
-                            <td><?=$get->qty_sold?></td>
-                            <td><?=$get->tot_trans?></td>
-                            <td>&#8358;<?=number_format($get->tot_earned, 2)?></td>
+                            <td><?= $get->day ?>s</td>
+                            <td><?= $get->qty_sold ?></td>
+                            <td><?= $get->tot_trans ?></td>
+                            <td>$<?= number_format($get->tot_earned, 2) ?></td>
                         </tr>
-                        <?php endforeach;?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
                 <?php else: ?>
@@ -268,7 +273,7 @@ defined('BASEPATH') OR exit('');
         <div class="panel panel-hash">
             <div class="panel-heading">Transactions by Months</div>
             <div class="panel-body scroll panel-height">
-                <?php if(isset($transByMonths) && $transByMonths): ?>
+                <?php if (isset($transByMonths) && $transByMonths): ?>
                 <table class="table table-responsive table-striped table-hover">
                     <thead>
                         <tr>
@@ -280,14 +285,14 @@ defined('BASEPATH') OR exit('');
                     </thead>
 
                     <tbody>
-                        <?php foreach($transByMonths as $get): ?>
+                        <?php foreach ($transByMonths as $get): ?>
                         <tr>
-                            <td><?=$get->month?></td>
-                            <td><?=$get->qty_sold?></td>
-                            <td><?=$get->tot_trans?></td>
-                            <td>&#8358;<?=number_format($get->tot_earned, 2)?></td>
+                            <td><?= $get->month ?></td>
+                            <td><?= $get->qty_sold ?></td>
+                            <td><?= $get->tot_trans ?></td>
+                            <td>$<?= number_format($get->tot_earned, 2) ?></td>
                         </tr>
-                        <?php endforeach;?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
                 <?php else: ?>
@@ -302,7 +307,7 @@ defined('BASEPATH') OR exit('');
         <div class="panel panel-hash">
             <div class="panel-heading">Transactions by Years</div>
             <div class="panel-body scroll panel-height">
-                <?php if(isset($transByYears) && $transByYears): ?>
+                <?php if (isset($transByYears) && $transByYears): ?>
                 <table class="table table-responsive table-striped table-hover">
                     <thead>
                         <tr>
@@ -314,14 +319,14 @@ defined('BASEPATH') OR exit('');
                     </thead>
 
                     <tbody>
-                        <?php foreach($transByYears as $get): ?>
+                        <?php foreach ($transByYears as $get): ?>
                         <tr>
-                            <td><?=$get->year?></td>
-                            <td><?=$get->qty_sold?></td>
-                            <td><?=$get->tot_trans?></td>
-                            <td>&#8358;<?=number_format($get->tot_earned, 2)?></td>
+                            <td><?= $get->year ?></td>
+                            <td><?= $get->qty_sold ?></td>
+                            <td><?= $get->tot_trans ?></td>
+                            <td>$<?= number_format($get->tot_earned, 2) ?></td>
                         </tr>
-                        <?php endforeach;?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
                 <?php else: ?>
@@ -332,5 +337,5 @@ defined('BASEPATH') OR exit('');
     </div>
 </div>
 
-<script src="<?=base_url('public/js/chart.js'); ?>"></script>
-<script src="<?=base_url('public/js/dashboard.js')?>"></script>
+<script src="<?= base_url('public/js/chart.js') ?>"></script>
+<script src="<?= base_url('public/js/dashboard.js') ?>"></script>

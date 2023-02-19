@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') or exit('');
+date_default_timezone_set('Asia/Beirut');
 ?>
 
 <!DOCTYPE HTML>

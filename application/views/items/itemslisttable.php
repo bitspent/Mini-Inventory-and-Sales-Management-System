@@ -20,6 +20,7 @@
                         <th>ITEM CODE</th>
                         <th>DESCRIPTION</th>
                         <th>QTY IN STOCK</th>
+                        <th>UNIT COST</th>
                         <th>UNIT PRICE</th>
                         <th>TOTAL SOLD</th>
                         <th>TOTAL EARNED ON ITEM</th>
@@ -43,6 +44,7 @@
                         <td class="<?=$get->quantity <= 10 ? 'bg-danger' : ($get->quantity <= 25 ? 'bg-warning' : '')?>">
                             <span id="itemQuantity-<?=$get->id?>"><?=$get->quantity?></span>
                         </td>
+                        <td>$<span id="itemCost-<?=$get->id?>"><?=number_format($get->unitCost, 2)?></span></td>
                         <td>$<span id="itemPrice-<?=$get->id?>"><?=number_format($get->unitPrice, 2)?></span></td>
                         <td><?=$this->genmod->gettablecol('transactions', 'SUM(quantity)', 'itemCode', $get->code)?></td>
                         <td>

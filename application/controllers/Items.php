@@ -105,6 +105,7 @@ class Items extends CI_Controller
     );
     $this->form_validation->set_rules('itemQuantity', 'Item quantity', ['required', 'trim', 'numeric'], ['required' => "required"]);
     $this->form_validation->set_rules('itemPrice', 'Item Price', ['required', 'trim', 'numeric'], ['required' => "required"]);
+    $this->form_validation->set_rules('itemCost', 'Item Cost', ['required', 'trim', 'numeric'], ['required' => "required"]);
     $this->form_validation->set_rules(
       'itemCode',
       'Item Code',
@@ -117,12 +118,13 @@ class Items extends CI_Controller
 
       /**
        * insert info into db
-       * function header: add($itemName, $itemQuantity, $itemPrice, $itemDescription, $itemCode)
+       * function header: add($itemName, $itemQuantity, $itemPrice, $itemCost, $itemDescription, $itemCode)
        */
       $insertedId = $this->item->add(
         set_value('itemName'),
         set_value('itemQuantity'),
         set_value('itemPrice'),
+        set_value('itemCost'),
         set_value('itemDescription'),
         set_value('itemCode')
       );
@@ -130,10 +132,11 @@ class Items extends CI_Controller
       $itemName = set_value('itemName');
       $itemQty = set_value('itemQuantity');
       $itemPrice = "$" . number_format(set_value('itemPrice'), 2);
+      $itemCost = "$" . number_format(set_value('itemCost'), 2);
 
       //insert into eventlog
       //function header: addevent($event, $eventRowId, $eventDesc, $eventTable, $staffId)
-      $desc = "Addition of {$itemQty} quantities of a new item '{$itemName}' with a unit price of {$itemPrice} to stock";
+      $desc = "Addition of {$itemQty} quantities of a new item '{$itemName}' with a unit price of {$itemPrice}, and cost of {$itemCost} to stock";
 
       $insertedId ? $this->genmod->addevent("Creation of new item", $insertedId, $desc, "items", $this->session->admin_id) : "";
 

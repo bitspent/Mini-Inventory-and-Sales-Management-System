@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('');
+date_default_timezone_set('Asia/Beirut');
 ?>
 
 <div class="pwell hidden-print"> 

@@ -1,10 +1,13 @@
-<?php defined('BASEPATH') OR exit('') ?>
+<?php
+defined('BASEPATH') or exit('');
+date_default_timezone_set('Asia/Beirut');
+?>
 
-<?= isset($range) && !empty($range) ? $range : ""; ?>
+<?= isset($range) && !empty($range) ? $range : '' ?>
 <div class="panel panel-primary">
     <!-- Default panel contents -->
     <div class="panel-heading">TRANSACTIONS</div>
-    <?php if($allTransactions): ?>
+    <?php if ($allTransactions): ?>
     <div class="table table-responsive">
         <table class="table table-bordered table-striped">
             <thead>
@@ -23,7 +26,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($allTransactions as $get): ?>
+                <?php foreach ($allTransactions as $get): ?>
                 <tr>
                     <th><?= $sn ?>.</th>
                     <td><a class="pointer vtr" title="Click to view receipt"><?= $get->ref ?></a></td>
@@ -31,11 +34,14 @@
                     <td>$<?= number_format($get->totalMoneySpent, 2) ?></td>
                     <td>$<?= number_format($get->amountTendered, 2) ?></td>
                     <td>$<?= number_format($get->changeDue, 2) ?></td>
-                    <td><?=  str_replace("_", " ", $get->modeOfPayment)?></td>
-                    <td><?=$get->staffName?></td>
-                    <td><?=$get->cust_name?> - <?=$get->cust_phone?> - <?=$get->cust_email?></td>
-                    <td><?= date('jS M, Y h:ia', strtotime($get->transDate)) ?></td>
-                    <td><?=$get->cancelled ? 'Cancelled' : 'Completed'?></td>
+                    <td><?= str_replace('_', ' ', $get->modeOfPayment) ?></td>
+                    <td><?= $get->staffName ?></td>
+                    <td><?= $get->cust_name ?> - <?= $get->cust_phone ?> - <?= $get->cust_email ?></td>
+                    <td><?= date(
+                        'jS M, Y h:ia',
+                        strtotime($get->transDate)
+                    ) ?></td>
+                    <td><?= $get->cancelled ? 'Cancelled' : 'Completed' ?></td>
                 </tr>
                 <?php $sn++; ?>
                 <?php endforeach; ?>
@@ -50,7 +56,7 @@
     <!--Pagination div-->
     <div class="col-sm-12 text-center">
         <ul class="pagination">
-            <?= isset($links) ? $links : "" ?>
+            <?= isset($links) ? $links : '' ?>
         </ul>
     </div>
 </div>
