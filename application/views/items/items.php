@@ -230,22 +230,28 @@ defined('BASEPATH') OR exit('');
             <div class="modal-body">
                 <form role="form">
                     <div class="row">
-                        <div class="col-sm-4 form-group-sm">
+                        <div class="col-sm-6 form-group-sm">
                             <label for="itemNameEdit">Item Name</label>
                             <input type="text" id="itemNameEdit" placeholder="Item Name" autofocus class="form-control checkField">
                             <span class="help-block errMsg" id="itemNameEditErr"></span>
                         </div>
                         
-                        <div class="col-sm-4 form-group-sm">
+                        <div class="col-sm-6 form-group-sm">
                             <label for="itemCode">Item Code</label>
                             <input type="text" id="itemCodeEdit" class="form-control">
                             <span class="help-block errMsg" id="itemCodeEditErr"></span>
                         </div>
                         
-                        <div class="col-sm-4 form-group-sm">
-                            <label for="unitPrice">Unit Price</label>
+                        <div class="col-sm-6 form-group-sm">
+                            <label for="itemPriceEdit">Unit Price</label>
                             <input type="text" id="itemPriceEdit" name="itemPrice" placeholder="Unit Price" class="form-control checkField">
                             <span class="help-block errMsg" id="itemPriceEditErr"></span>
+                        </div>
+
+                        <div class="col-sm-6 form-group-sm">
+                            <label for="itemCostEdit">Unit Cost</label>
+                            <input type="text" id="itemCostEdit" name="itemCost" placeholder="Unit Cost" class="form-control checkField">
+                            <span class="help-block errMsg" id="itemCostEditErr"></span>
                         </div>
                     </div>
                     

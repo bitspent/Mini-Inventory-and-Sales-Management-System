@@ -213,6 +213,7 @@ $(document).ready(function () {
         var itemDesc = $("#itemDesc-" + itemId).attr('title');
         var itemName = $("#itemName-" + itemId).html();
         var itemPrice = $("#itemPrice-" + itemId).html().split(".")[0].replace(",", "");
+        var itemCost = $("#itemCost-" + itemId).html().split(".")[0].replace(",", "");
         var itemCode = $("#itemCode-" + itemId).html();
 
         //prefill form with info
@@ -220,6 +221,7 @@ $(document).ready(function () {
         $("#itemNameEdit").val(itemName);
         $("#itemCodeEdit").val(itemCode);
         $("#itemPriceEdit").val(itemPrice);
+        $("#itemCostEdit").val(itemCost);
         $("#itemDescriptionEdit").val(itemDesc);
 
         //remove all error messages that might exist
@@ -244,10 +246,12 @@ $(document).ready(function () {
         var itemDesc = $("#itemDescriptionEdit").val();
         var itemId = $("#itemIdEdit").val();
         var itemCode = $("#itemCodeEdit").val();
+        var itemCost = $("#itemCostEdit").val();
 
         if (!itemName || !itemPrice || !itemId) {
             !itemName ? $("#itemNameEditErr").html("Item name cannot be empty") : "";
             !itemPrice ? $("#itemPriceEditErr").html("Item price cannot be empty") : "";
+            !itemCost ? $("#itemCostEditErr").html("Item cost cannot be empty") : "";
             !itemId ? $("#editItemFMsg").html("Unknown item") : "";
             return;
         }
@@ -257,7 +261,14 @@ $(document).ready(function () {
         $.ajax({
             method: "POST",
             url: appRoot + "items/edit",
-            data: { itemName: itemName, itemPrice: itemPrice, itemDesc: itemDesc, _iId: itemId, itemCode: itemCode }
+            data: {
+                itemName: itemName,
+                itemPrice: itemPrice,
+                itemDesc: itemDesc,
+                _iId: itemId,
+                itemCode: itemCode,
+                itemCost: itemCost
+            }
         }).done(function (returnedData) {
             if (returnedData.status === 1) {
                 $("#editItemFMsg").css('color', 'green').html("Item successfully updated");
@@ -275,6 +286,7 @@ $(document).ready(function () {
                 $("#itemNameEditErr").html(returnedData.itemName);
                 $("#itemCodeEditErr").html(returnedData.itemCode);
                 $("#itemPriceEditErr").html(returnedData.itemPrice);
+                $("#itemCostEditErr").html(returnedData.itemCost);
             }
         }).fail(function () {
             $("#editItemFMsg").css('color', 'red').html("Unable to process your request at this time. Please check your internet connection and try again");

@@ -308,17 +308,19 @@ class Items extends CI_Controller
       'callback_crosscheckCode[' . $this->input->post('_iId', TRUE) . ']'
     ], ['required' => 'required']);
     $this->form_validation->set_rules('itemPrice', 'Item Unit Price', ['required', 'trim', 'numeric']);
+    $this->form_validation->set_rules('itemCost', 'Item Unit Cost', ['required', 'trim', 'numeric']);
     $this->form_validation->set_rules('itemDesc', 'Item Description', ['trim']);
 
     if ($this->form_validation->run() !== FALSE) {
       $itemId = set_value('_iId');
       $itemDesc = set_value('itemDesc');
       $itemPrice = set_value('itemPrice');
+      $itemCost = set_value('itemCost');
       $itemName = set_value('itemName');
       $itemCode = $this->input->post('itemCode', TRUE);
 
       //update item in db
-      $updated = $this->item->edit($itemId, $itemName, $itemDesc, $itemPrice);
+      $updated = $this->item->edit($itemId, $itemName, $itemDesc, $itemPrice, $itemCost);
 
       $json['status'] = $updated ? 1 : 0;
 
